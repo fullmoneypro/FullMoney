@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- LOGO -->
+  <url>
+    <loc>https://fullmoney.pro/</loc>
+    <image:image>
+      <image:loc>https://fullmoney.pro/img/logo.jpg</image:loc>
+      <image:title>FullMoney Logo</image:title>
+    </image:image>
+  </url>
+
+  <!-- BANNER -->
+  <url>
+    <loc>https://fullmoney.pro/</loc>
+    <image:image>
+      <image:loc>https://fullmoney.pro/img/banner.jpg</image:loc>
+      <image:title>FullMoney Banner</image:title>
+    </image:image>
+  </url>
+
+  <!-- APP1 – APP20 -->
+  <!-- Linked to Money Making App page -->
+  <!-- ================================================================ -->
+  <!-- APP IMAGES -->
+  <url><loc>https://fullmoney.pro/make-money-app1.html</loc><image:image><image:loc>https://fullmoney.pro/img/app1.png</image:loc><image:title>App 1</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/make-money-app2.html</loc><image:image><image:loc>https://fullmoney.pro/img/app2.png</image:loc><image:title>App 2</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/make-money-app3.html</loc><image:image><image:loc>https://fullmoney.pro/img/app3.png</image:loc><image:title>App 3</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/make-money-app4.html</loc><image:image><image:loc>https://fullmoney.pro/img/app4.png</image:loc><image:title>App 4</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/make-money-app5.html</loc><image:image><image:loc>https://fullmoney.pro/img/app5.png</image:loc><image:title>App 5</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/make-money-app6.html</loc><image:image><image:loc>https://fullmoney.pro/img/app6.png</image:loc><image:title>App 6</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/make-money-app7.html</loc><image:image><image:loc>https://fullmoney.pro/img/app7.png</image:loc><image:title>App 7</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/make-money-app8.html</loc><image:image><image:loc>https://fullmoney.pro/img/app8.png</image:loc><image:title>App 8</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/make-money-app9.html</loc><image:image><image:loc>https://fullmoney.pro/img/app9.png</image:loc><image:title>App 9</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/make-money-app10.html</loc><image:image><image:loc>https://fullmoney.pro/img/app10.png</image:loc><image:title>App 10</image:title></image:image></url>
+
+  <url><loc>https://fullmoney.pro/make-money-app11.html</loc><image:image><image:loc>https://fullmoney.pro/img/app11.png</image:loc><image:title>App 11</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/make-money-app12.html</loc><image:image><image:loc>https://fullmoney.pro/img/app12.png</image:loc><image:title>App 12</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/make-money-app13.html</loc><image:image><image:loc>https://fullmoney.pro/img/app13.png</image:loc><image:title>App 13</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/make-money-app14.html</loc><image:image><image:loc>https://fullmoney.pro/img/app14.png</image:loc><image:title>App 14</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/make-money-app15.html</loc><image:image><image:loc>https://fullmoney.pro/img/app15.png</image:loc><image:title>App 15</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/make-money-app16.html</loc><image:image><image:loc>https://fullmoney.pro/img/app16.png</image:loc><image:title>App 16</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/make-money-app17.html</loc><image:image><image:loc>https://fullmoney.pro/img/app17.png</image:loc><image:title>App 17</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/make-money-app18.html</loc><image:image><image:loc>https://fullmoney.pro/img/app18.png</image:loc><image:title>App 18</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/make-money-app19.html</loc><image:image><image:loc>https://fullmoney.pro/img/app19.png</image:loc><image:title>App 19</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/make-money-app20.html</loc><image:image><image:loc>https://fullmoney.pro/img/app20.png</image:loc><image:title>App 20</image:title></image:image></url>
+
+  <!-- ARTICLE1 – ARTICLE16 -->
+  <!-- ================================================================ -->
+  <!-- ARTICLE IMAGES -->
+  <url><loc>https://fullmoney.pro/article1.html</loc><image:image><image:loc>https://fullmoney.pro/img/article1.jpg</image:loc><image:title>Article 1</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/article2.html</loc><image:image><image:loc>https://fullmoney.pro/img/article2.jpg</image:loc><image:title>Article 2</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/article3.html</loc><image:image><image:loc>https://fullmoney.pro/img/article3.jpg</image:loc><image:title>Article 3</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/article4.html</loc><image:image><image:loc>https://fullmoney.pro/img/article4.jpg</image:loc><image:title>Article 4</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/article5.html</loc><image:image><image:loc>https://fullmoney.pro/img/article5.jpg</image:loc><image:title>Article 5</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/article6.html</loc><image:image><image:loc>https://fullmoney.pro/img/article6.jpg</image:loc><image:title>Article 6</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/article7.html</loc><image:image><image:loc>https://fullmoney.pro/img/article7.jpg</image:loc><image:title>Article 7</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/article8.html</loc><image:image><image:loc>https://fullmoney.pro/img/article8.jpg</image:loc><image:title>Article 8</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/article9.html</loc><image:image><image:loc>https://fullmoney.pro/img/article9.jpg</image:loc><image:title>Article 9</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/article10.html</loc><image:image><image:loc>https://fullmoney.pro/img/article10.jpg</image:loc><image:title>Article 10</image:title></image:image></url>
+
+  <url><loc>https://fullmoney.pro/article11.html</loc><image:image><image:loc>https://fullmoney.pro/img/article11.jpg</image:loc><image:title>Article 11</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/article12.html</loc><image:image><image:loc>https://fullmoney.pro/img/article12.jpg</image:loc><image:title>Article 12</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/article13.html</loc><image:image><image:loc>https://fullmoney.pro/img/article13.jpg</image:loc><image:title>Article 13</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/article14.html</loc><image:image><image:loc>https://fullmoney.pro/img/article14.jpg</image:loc><image:title>Article 14</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/article15.html</loc><image:image><image:loc>https://fullmoney.pro/img/article15.jpg</image:loc><image:title>Article 15</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/article16.html</loc><image:image><image:loc>https://fullmoney.pro/img/article16.jpg</image:loc><image:title>Article 16</image:title></image:image></url>
+
+  <!-- BIZ1 – BIZ20 -->
+  <!-- ================================================================ -->
+  <!-- BUSINESS IMAGES -->
+  <url><loc>https://fullmoney.pro/biz1.html</loc><image:image><image:loc>https://fullmoney.pro/img/biz1.jpg</image:loc><image:title>Business 1</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/biz2.html</loc><image:image><image:loc>https://fullmoney.pro/img/biz2.jpg</image:loc><image:title>Business 2</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/biz3.html</loc><image:image><image:loc>https://fullmoney.pro/img/biz3.jpg</image:loc><image:title>Business 3</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/biz4.html</loc><image:image><image:loc>https://fullmoney.pro/img/biz4.jpg</image:loc><image:title>Business 4</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/biz5.html</loc><image:image><image:loc>https://fullmoney.pro/img/biz5.jpg</image:loc><image:title>Business 5</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/biz6.html</loc><image:image><image:loc>https://fullmoney.pro/img/biz6.jpg</image:loc><image:title>Business 6</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/biz7.html</loc><image:image><image:loc>https://fullmoney.pro/img/biz7.jpg</image:loc><image:title>Business 7</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/biz8.html</loc><image:image><image:loc>https://fullmoney.pro/img/biz8.jpg</image:loc><image:title>Business 8</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/biz9.html</loc><image:image><image:loc>https://fullmoney.pro/img/biz9.jpg</image:loc><image:title>Business 9</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/biz10.html</loc><image:image><image:loc>https://fullmoney.pro/img/biz10.jpg</image:loc><image:title>Business 10</image:title></image:image></url>
+
+  <url><loc>https://fullmoney.pro/biz11.html</loc><image:image><image:loc>https://fullmoney.pro/img/biz11.jpg</image:loc><image:title>Business 11</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/biz12.html</loc><image:image><image:loc>https://fullmoney.pro/img/biz12.jpg</image:loc><image:title>Business 12</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/biz13.html</loc><image:image><image:loc>https://fullmoney.pro/img/biz13.jpg</image:loc><image:title>Business 13</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/biz14.html</loc><image:image><image:loc>https://fullmoney.pro/img/biz14.jpg</image:loc><image:title>Business 14</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/biz15.html</loc><image:image><image:loc>https://fullmoney.pro/img/biz15.jpg</image:loc><image:title>Business 15</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/biz16.html</loc><image:image><image:loc>https://fullmoney.pro/img/biz16.jpg</image:loc><image:title>Business 16</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/biz17.html</loc><image:image><image:loc>https://fullmoney.pro/img/biz17.jpg</image:loc><image:title>Business 17</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/biz18.html</loc><image:image><image:loc>https://fullmoney.pro/img/biz18.jpg</image:loc><image:title>Business 18</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/biz19.html</loc><image:image><image:loc>https://fullmoney.pro/img/biz19.jpg</image:loc><image:title>Business 19</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/biz20.html</loc><image:image><image:loc>https://fullmoney.pro/img/biz20.jpg</image:loc><image:title>Business 20</image:title></image:image></url>
+
+  <!-- FINANCE1 – FINANCE20 -->
+  <!-- ================================================================ -->
+  <!-- FINANCE IMAGES -->
+  <url><loc>https://fullmoney.pro/finance1.html</loc><image:image><image:loc>https://fullmoney.pro/img/finance1.jpg</image:loc><image:title>Finance 1</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/finance2.html</loc><image:image><image:loc>https://fullmoney.pro/img/finance2.jpg</image:loc><image:title>Finance 2</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/finance3.html</loc><image:image><image:loc>https://fullmoney.pro/img/finance3.jpg</image:loc><image:title>Finance 3</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/finance4.html</loc><image:image><image:loc>https://fullmoney.pro/img/finance4.jpg</image:loc><image:title>Finance 4</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/finance5.html</loc><image:image><image:loc>https://fullmoney.pro/img/finance5.jpg</image:loc><image:title>Finance 5</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/finance6.html</loc><image:image><image:loc>https://fullmoney.pro/img/finance6.jpg</image:loc><image:title>Finance 6</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/finance7.html</loc><image:image><image:loc>https://fullmoney.pro/img/finance7.jpg</image:loc><image:title>Finance 7</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/finance8.html</loc><image:image><image:loc>https://fullmoney.pro/img/finance8.jpg</image:loc><image:title>Finance 8</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/finance9.html</loc><image:image><image:loc>https://fullmoney.pro/img/finance9.jpg</image:loc><image:title>Finance 9</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/finance10.html</loc><image:image><image:loc>https://fullmoney.pro/img/finance10.jpg</image:loc><image:title>Finance 10</image:title></image:image></url>
+
+  <url><loc>https://fullmoney.pro/finance11.html</loc><image:image><image:loc>https://fullmoney.pro/img/finance11.jpg</image:loc><image:title>Finance 11</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/finance12.html</loc><image:image><image:loc>https://fullmoney.pro/img/finance12.jpg</image:loc><image:title>Finance 12</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/finance13.html</loc><image:image><image:loc>https://fullmoney.pro/img/finance13.jpg</image:loc><image:title>Finance 13</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/finance14.html</loc><image:image><image:loc>https://fullmoney.pro/img/finance14.jpg</image:loc><image:title>Finance 14</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/finance15.html</loc><image:image><image:loc>https://fullmoney.pro/img/finance15.jpg</image:loc><image:title>Finance 15</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/finance16.html</loc><image:image><image:loc>https://fullmoney.pro/img/finance16.jpg</image:loc><image:title>Finance 16</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/finance17.html</loc><image:image><image:loc>https://fullmoney.pro/img/finance17.jpg</image:loc><image:title>Finance 17</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/finance18.html</loc><image:image><image:loc>https://fullmoney.pro/img/finance18.jpg</image:loc><image:title>Finance 18</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/finance19.html</loc><image:image><image:loc>https://fullmoney.pro/img/finance19.jpg</image:loc><image:title>Finance 19</image:title></image:image></url>
+  <url><loc>https://fullmoney.pro/finance20.html</loc><image:image><image:loc>https://fullmoney.pro/img/finance20.jpg</image:loc><image:title>Finance 20</image:title></image:image></url>
+
+</urlset>

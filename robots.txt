@@ -1,0 +1,56 @@
+# ============================
+# FullMoney.pro - Robots.txt
+# SEO Optimized + AdSense Safe
+# ============================
+
+User-agent: *
+Allow: /
+Allow: /*.js$
+Allow: /*.css$
+Allow: /img/
+Allow: /assets/
+Allow: /styles/
+Allow: /scripts/
+
+# Disallow sensitive / non-SEO URLs
+Disallow: /admin/
+Disallow: /tmp/
+Disallow: /cgi-bin/
+Disallow: /*?replytocom
+Disallow: /*?utm_*
+Disallow: /*?fbclid=*
+Disallow: /*?m=1
+
+# File types not needed for indexing
+Disallow: /*.pdf$
+Disallow: /*.zip$
+
+# Optional
+# Disallow: /*/amp/
+
+# Crawl delay (ignored by Google but safe for Bing/Yandex)
+Crawl-delay: 3
+
+# =============================
+# AdSense & Google Crawlers
+# =============================
+
+User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: AdsBot-Google
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-Mobile
+Allow: /
+
+User-agent: Googlebot-News
+Allow: /
+
+# =============================
+# Sitemap Index
+# =============================
+Sitemap: https://fullmoney.pro/sitemap_index.xml

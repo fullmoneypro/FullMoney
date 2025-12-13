@@ -28,7 +28,7 @@ header {
     padding: 40px 20px; /* diganti agar ruang cukup utk background */
     max-width: var(--max-width);
     margin: 0 auto;
-    background-image: url('img/banner.jpg'); /* ganti sesuai nama file */
+    background-image: url('img/banner.webp'); /* ganti sesuai nama file */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IKAN MEMBAWA BERKAH - PT AWR MUSIK</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
+        body, html { width: 100%; height: 100%; background: #1a1a1a; display: flex; justify-content: center; align-items: center; font-family: sans-serif; overflow: hidden; }
+
+        .phone-case {
+            position: relative; width: 360px; height: 740px; background: #000;
+            border: 12px solid #2a2a2a; border-radius: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7); overflow: hidden; z-index: 1;
+        }
+        .phone-screen { position: relative; width: 100%; height: 100%; background: black; border-radius: 30px; overflow: hidden; }
+        #bg-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+
+        .ui-container { position: relative; width: 100%; height: 100%; z-index: 10; display: flex; flex-direction: column; }
+        .ad-banner { width: 100%; height: 50px; background: rgba(0,0,0,0.8); display: flex; justify-content: center; align-items: center; color: #555; font-size: 10px; border-bottom: 1px solid rgba(255,255,255,0.1); text-transform: uppercase; letter-spacing: 1px; }
+
+        /* KOIN & JAM ATAS */
+        .stats-container { position: absolute; top: 70px; left: 20px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+        .coin-badge { background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(10px); padding: 6px 16px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.2); color: #fbbf24; font-weight: bold; font-size: 16px; }
+        .timer-circle { width: 40px; height: 40px; border: 4px solid rgba(255, 255, 255, 0.1); border-radius: 50%; position: relative; }
+        .timer-circle::after { content: ''; position: absolute; inset: -4px; border: 4px solid transparent; border-top-color: #fbbf24; border-radius: 50%; animation: spin-complete 10s linear infinite; }
+        @keyframes spin-complete { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* LAYER HALAMAN (PROFIL & SETING) */
+        .page-layer {
+            position: absolute; inset: 0; z-index: 1000; background: rgba(0,0,0,0.6); 
+            backdrop-filter: blur(20px); display: none; flex-direction: column; overflow-y: auto; padding-bottom: 100px;
+        }
+        .glass-card { background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 24px; }
+
+        /* IKLAN & REWARD */
+        #ad-overlay { position: absolute; inset: 0; background: black; z-index: 2000; display: none; justify-content: center; align-items: center; }
+        #reward-notif { position: absolute; inset: 0; background: rgba(0,0,0,0.85); z-index: 1500; display: none; flex-direction: column; justify-content: center; align-items: center; backdrop-filter: blur(8px); padding: 20px; }
+        .reward-card { background: linear-gradient(to bottom, #333, #111); border: 2px solid #fbbf24; border-radius: 30px; padding: 35px 25px; text-align: center; color: white; width: 100%; max-width: 300px; }
+
+        /* NAV BAWAH */
+        .bottom-nav { margin-top: auto; width: 100%; height: 90px; background: linear-gradient(transparent, rgba(0,0,0,0.9)); display: flex; justify-content: space-around; align-items: flex-end; padding-bottom: 15px; }
+        .nav-item { cursor: pointer; display: flex; flex-direction: column; align-items: center; color: white; opacity: 0.7; width: 60px; }
+        .main-coin-btn { width: 60px; height: 60px; background: linear-gradient(145deg, #fcd34d, #d97706); border-radius: 50%; border: 4px solid #92400e; display: flex; justify-content: center; align-items: center; font-size: 30px; box-shadow: 0 0 20px rgba(251, 191, 36, 0.5); animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+    </style>
+</head>
+<body>
+
+    <div class="phone-case">
+        <div class="phone-screen">
+
+             <div id="login-layer" style="position: absolute; inset: 0; z-index: 9999; background: rgba(0,0,0,0.85); backdrop-filter: blur(20px); display: flex; justify-content: center; align-items: center;">
+                 <div style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 25px; border-radius: 30px; width: 85%; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+        
+                    <h2 id="login-title" style="color: #fbbf24; font-weight: 900; font-size: 20px; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px;">Berkah Aquarium</h2>
+                   
+                    <div id="input-container" style="display: flex; flex-direction: column; gap: 10px;">
+                        <input type="text" id="reg-nama" placeholder="Nama Lengkap" style="width: 100%; padding: 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.4); color: white; outline: none; font-size: 13px; display: none;">
+            
+                        <input type="number" id="reg-dana" placeholder="Nomor DANA" style="width: 100%; padding: 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.4); color: white; outline: none; font-size: 13px; display: none;">
+            
+                        <input type="email" id="reg-email" placeholder="Gmail" style="width: 100%; padding: 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.4); color: white; outline: none; font-size: 13px;">
+            
+                        <input type="password" id="reg-pass" placeholder="Password" style="width: 100%; padding: 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.4); color: white; outline: none; font-size: 13px;">
+            
+                        <input type="password" id="reg-confirm" placeholder="Konfirmasi Password" style="width: 100%; padding: 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.4); color: white; outline: none; font-size: 13px; display: none;">
+                    </div>
+
+                    <button onclick="eksekusiAuth()" id="btn-auth" style="width: 100%; background: #fbbf24; color: black; font-weight: 900; padding: 14px; border-radius: 15px; text-transform: uppercase; font-size: 13px; margin-top: 20px; margin-bottom: 15px; cursor: pointer;">Masuk</button>
+
+                    <p style="color: rgba(255,255,255,0.5); font-size: 10px;">
+                        <span id="label-tanya">Belum punya akun?</span> 
+                        <button onclick="pindahMode()" id="btn-pindah" style="color: #fbbf24; font-weight: bold; margin-left: 5px; background: none; border: none; cursor: pointer;">Daftar Sekarang</button>
+                    </p>
+                </div>
+            </div>
+
+            <video autoplay muted loop playsinline id="bg-video"><source src="ikan.mp4" type="video/mp4"></video>
+
+            <div class="ui-container">
+                <div class="ad-banner">Banner AdMob Di Sini</div>
+
+                <div class="stats-container">
+                    <div class="coin-badge">💰 <span id="coin-display">0</span></div>
+                    <div class="timer-circle"></div>
+                </div>
+
+                <div id="page-profile" class="page-layer">
+                    <div class="mt-16 text-center">
+                        <div class="w-20 h-20 bg-gradient-to-tr from-yellow-400 to-yellow-600 rounded-full mx-auto flex justify-center items-center text-4xl shadow-xl">👤</div>
+                        <h2 id="prof-nama-user" class="text-white font-bold mt-4 uppercase">MEMUAT...</h2>
+                        <div class="bg-yellow-500/20 text-yellow-500 text-[10px] font-mono py-1 px-3 rounded-full inline-block mt-1">ID: RPCB-KDR-001</div>
+                    </div>
+
+                    <div class="glass-card mx-auto mt-6 p-5 w-[90%] text-center">
+                        <p class="text-white/40 text-[10px] uppercase font-bold tracking-widest">Saldo Koin Saat Ini</p>
+                        <div class="text-white text-4xl font-black my-1">💰 <span id="prof-coin-total">0</span></div>
+                        <p class="text-yellow-500 text-sm font-medium italic">Setara dengan <span id="prof-rupiah-total">Rp0</span></p>
+                    </div>
+
+                    <div class="w-[90%] mx-auto mt-4 bg-white/5 border border-white/10 p-4 rounded-2xl text-white">
+                        <p class="text-white/50 text-[10px] font-bold uppercase mb-3">Tujuan DANA</p>
+                        <input type="number" id="dana-number" placeholder="Nomor DANA" class="bg-black/40 text-white p-3 w-full rounded-xl outline-none text-sm border border-white/10 mb-2 ...">
+                        <div class="flex gap-2">
+                            <button onclick="saveDana()" class="flex-1 bg-green-600 py-2 rounded-lg font-bold text-[10px]">SIMPAN</button>
+                            <button onclick="hapusDana()" class="flex-1 bg-red-600 py-2 rounded-lg font-bold text-[10px]">HAPUS</button>
+                        </div>
+                    </div>
+
+                    <div class="w-[90%] mx-auto mt-4">
+                        <button onclick="tarikSaldo()" class="w-full bg-yellow-500 text-black font-black py-4 rounded-2xl shadow-lg text-sm">TARIK SALDO SEKARANG</button>
+                    </div>
+
+                    <div class="w-[90%] mx-auto mt-6">
+                        <div class="bg-white/5 border border-white/10 p-4 rounded-2xl text-center">
+                            <p class="text-white/40 text-[10px] uppercase font-bold">Total Uang Yang Sudah Dicairkan</p>
+                            <p class="text-green-400 font-black text-2xl mt-1" id="total-wd-display">Rp0</p>
+                        </div>
+                    </div>
+
+                    <div class="w-[90%] mx-auto mt-8 mb-10">
+                        <button onclick="tutupHalaman('page-profile')" class="w-full py-4 bg-white/10 text-white font-bold rounded-2xl text-sm border border-white/20 uppercase">KELUAR</button>
+                    </div>
+                </div>
+
+                <div id="page-settings" class="page-layer">
+                    <div class="mt-16 mb-6 text-center">
+                        <h2 class="text-white font-black text-2xl tracking-widest uppercase">PENGATURAN</h2>
+                    </div>
+                    <div class="flex flex-col gap-4 px-6">
+                        <p class="text-white/40 text-[10px] font-bold uppercase tracking-widest ml-2 mt-4">Pengaturan Suara</p>
+<div class="glass-card p-4 flex flex-col gap-4">
+    <div class="flex flex-col gap-2">
+        <label class="text-white text-xs font-bold">Pilih Musik Latar:</label>
+        <select id="bg-music-select" onchange="pilihMusik(this.value)" class="bg-black/60 text-yellow-500 border border-white/20 rounded-xl p-3 text-xs outline-none w-full">
+            <option value="air1">🌊 1. Air 1</option>
+            <option value="air2">💧 2. Air 2</option>
+            <option value="air3">✨ 3. Air 3</option>
+            <option value="none">❌ Mute (Tanpa Musik)</option>
+            
+        </select>
+    </div>
+
+    <div class="flex items-center gap-3">
+        <span class="text-[10px] text-white/50">Volume</span>
+        <input type="range" id="volume-control" min="0" max="1" step="0.1" value="0.5" oninput="setVolume(this.value)" class="w-full h-1 bg-yellow-500 rounded-lg appearance-none cursor-pointer">
+    </div>
+</div>
+<audio id="audio-player" loop playsinline preload="auto"></audio>
+
+                        <div class="glass-card p-4 flex justify-between items-center text-white">
+                            <span class="text-sm">Efek Suara Koin</span>
+                            <input type="checkbox" id="switch-koin" checked onchange="koinSoundEnabled = this.checked" class="w-5 h-5 accent-green-500">
+                            <audio id="audio-koin" src="koin.mp3" preload="auto"></audio>
+                        </div>
+                        <p class="text-white/40 text-[10px] font-bold uppercase tracking-widest ml-2 mt-2">Keamanan & Akun</p>
+                        <div class="glass-card p-4 flex justify-between items-center text-white cursor-pointer">
+                            <span class="text-sm">Ganti Kata Sandi</span><span class="text-white/20">🔑</span>
+                        </div>
+                        <div class="glass-card p-4 flex justify-between items-center text-white cursor-pointer" onclick="alert('Cache dibersihkan!')">
+                            <span class="text-sm">Hapus Cache Aplikasi</span><span class="text-white/20">🧹</span>
+                        </div>
+                        <p class="text-white/40 text-[10px] font-bold uppercase tracking-widest ml-2 mt-2">Informasi & Bantuan</p>
+                        <div class="glass-card p-4 flex justify-between items-center text-white cursor-pointer">
+                            <span class="text-sm">Kebijakan Privasi</span><span class="text-white/20">📄</span>
+                        </div>
+                        <div class="glass-card p-4 flex justify-between items-center text-white cursor-pointer">
+                            <span class="text-sm">Bantuan / CS (WhatsApp)</span><span class="text-green-500 text-lg">💬</span>
+                        </div>
+                        <button onclick="prosesLogout()" class="w-full py-4 bg-red-600/20 border border-red-600/50 text-red-500 font-bold rounded-2xl text-[10px] uppercase tracking-widest mt-6">LOGOUT (KELUAR AKUN)</button>
+                        
+                        <button onclick="tutupHalaman('page-settings')" class="mt-4 text-white/30 font-bold text-[10px] uppercase tracking-widest py-2">[ Kembali ke Aquarium ]</button>
+                    </div>
+                </div>
+
+                <div id="ad-overlay">
+                    <div class="absolute top-10 right-5 bg-black/80 text-white px-4 py-2 rounded-full border border-white/20 text-sm font-bold">Iklan: <span id="detik-iklan">30</span>s</div>
+                    <div class="text-center text-white"><div class="text-5xl animate-pulse">📺</div></div>
+                </div>
+
+                <div id="reward-notif">
+                    <div class="reward-card">
+                        <div class="text-6xl mb-4">💰</div>
+                        <h2 class="text-yellow-400 font-black text-xl uppercase">Berkah Diterima!</h2>
+                        <div id="jumlah-koin-acak" class="text-white text-5xl font-black my-6">+0</div>
+                        <button onclick="klikLagi()" class="w-full bg-yellow-500 text-black font-extrabold py-4 rounded-full mb-4 uppercase text-sm shadow-lg">Klik Lagi Dapat Koin</button>
+                        <button onclick="tutupNotif()" class="text-white/40 text-[10px] font-bold uppercase tracking-widest">Keluar</button>
+                    </div>
+                </div>
+
+                <div class="bottom-nav">
+                    <div class="nav-item" onclick="bukaHalaman('page-profile')">
+                        <span class="text-2xl">👤</span><span class="text-[9px]">Profil</span>
+                    </div>
+                    <div class="coin-button-wrapper" onclick="mulaiIklanVideo()">
+                        <div class="main-coin-btn">💰</div>
+                        <span class="text-yellow-400 font-bold text-[10px] mt-1 uppercase">Tambah Koin</span>
+                    </div>
+                    <div class="nav-item" onclick="bukaHalaman('page-settings')">
+                        <span class="text-2xl">⚙️</span><span class="text-[9px]">Seting</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    let coins = parseInt(localStorage.getItem('userCoins')) || 0;
+    let totalWD = parseInt(localStorage.getItem('totalWD')) || 0;
+    let wdCount = parseInt(localStorage.getItem('wdCount')) || 0;
+    let koinDidapat = 0;
+
+    // 1. CEK LOGIN & UPDATE TAMPILAN SAAT BUKA APP
+    window.onload = () => {
+        if(localStorage.getItem('isLoggedIn') !== 'true') {
+            document.getElementById('login-layer').style.display = 'flex';
+        } else {
+            document.getElementById('login-layer').style.display = 'none';
+        }
+        updateUI();
+    }
+
+    // 2. FUNGSI UPDATE SEMUA DATA DI LAYAR
+    function updateUI() {
+        // Tampilan Koin & Saldo
+        document.getElementById('coin-display').innerText = coins.toLocaleString();
+        document.getElementById('prof-coin-total').innerText = coins.toLocaleString();
+        document.getElementById('prof-rupiah-total').innerText = "Rp" + (coins * 0.01).toLocaleString('id-ID');
+        document.getElementById('total-wd-display').innerText = "Rp" + totalWD.toLocaleString('id-ID');
+
+        // Tampilan Nama & Nomor DANA dari Memori Pendaftaran
+        const namaTersimpan = localStorage.getItem('dataNama') || "ARIPIN";
+        const danaTersimpan = localStorage.getItem('dataDana') || "";
+
+        const elNama = document.getElementById('prof-nama-user');
+        const elDana = document.getElementById('dana-number');
+
+        if(elNama) elNama.innerText = namaTersimpan;
+        if(elDana) elDana.value = danaTersimpan;
+    }
+
+    // 3. FUNGSI SIMPAN & HAPUS (KHUSUS DI PROFIL)
+    function saveDana() {
+        const nomorBaru = document.getElementById('dana-number').value;
+        if(nomorBaru !== "") {
+            localStorage.setItem('dataDana', nomorBaru); // Update data utama
+            alert("Nomor DANA berhasil diperbarui!");
+            updateUI();
+        } else {
+            alert("Harap masukkan nomor DANA!");
+        }
+    }
+
+    function hapusDana() {
+        if(confirm("Yakin ingin menghapus nomor DANA?")) {
+            document.getElementById('dana-number').value = "";
+            localStorage.setItem('dataDana', ""); // Kosongkan di memori
+            alert("Nomor DANA telah dihapus!");
+            updateUI();
+        }
+    }
+
+    // 4. FUNGSI LOGOUT
+    function prosesLogout() {
+        if(confirm("Apakah Anda yakin ingin keluar dari akun?")) {
+            localStorage.removeItem('isLoggedIn');
+            location.reload();
+        }
+    }
+
+    // 5. FUNGSI NAVIGASI & IKLAN
+function bukaHalaman(id) { document.getElementById(id).style.display = 'flex'; }
+function tutupHalaman(id) { document.getElementById(id).style.display = 'none'; }
+function tutupProfil() { document.getElementById('page-profile').style.display = 'none'; }
+
+// Fungsi pemanggil suara koin
+function mainkanSuaraKoin() {
+    const soundKoin = document.getElementById('audio-koin');
+    // Cek switch di pengaturan (default true jika belum diatur)
+    if (typeof koinSoundEnabled !== 'undefined' && koinSoundEnabled === false) return;
+
+    if (soundKoin) {
+        soundKoin.currentTime = 0; 
+        soundKoin.play().catch(e => console.log("Izin audio belum aktif"));
+    }
+}
+
+function tambahSaldo() { 
+    coins += koinDidapat; 
+    koinDidapat = 0; 
+    localStorage.setItem('userCoins', coins); 
+    updateUI(); 
+    // Di sini kosongkan saja, suara sudah dipindah ke timer iklan
+}
+
+function mulaiIklanVideo() {
+    if (player) player.pause();
+    const overlay = document.getElementById('ad-overlay');
+    const timerText = document.getElementById('detik-iklan');
+    let detik = 30;
+    overlay.style.display = 'flex';
+    timerText.innerText = detik;
+
+    let timerIklan = setInterval(() => {
+        detik--; 
+        timerText.innerText = detik;
+        if (detik <= 0) {
+            clearInterval(timerIklan); 
+            overlay.style.display = 'none';
+            koinDidapat = Math.floor(Math.random() * 401) + 100;
+            document.getElementById('jumlah-koin-acak').innerText = "+" + koinDidapat;
+            document.getElementById('reward-notif').style.display = 'flex';
+            
+            // --- EFEK BARENGAN ---
+            confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
+            mainkanSuaraKoin(); // Suara bunyi pas pita muncul
+        }
+    }, 1000);
+}
+
+function klikLagi() { 
+    tambahSaldo(); 
+    document.getElementById('reward-notif').style.display = 'none'; 
+    mulaiIklanVideo(); 
+}
+
+function tutupNotif() { 
+    tambahSaldo(); 
+    document.getElementById('reward-notif').style.display = 'none'; 
+
+    // TAMBAHKAN INI: Jalankan lagi musik latar jika bukan dalam mode Mute
+    const saved = localStorage.getItem('pilihanMusik');
+    if (player && saved !== "none") {
+        player.play().catch(e => console.log("Menunggu klik"));
+    }
+}
+
+    function tarikSaldo() {
+        let rupiah = coins * 0.01;
+        let minWD = (wdCount === 0) ? 100000 : 50000;
+        if(rupiah < minWD) { alert("Saldo kurang! Minimal Rp" + minWD.toLocaleString()); }
+        else {
+            totalWD += rupiah; wdCount++; coins = 0;
+            localStorage.setItem('totalWD', totalWD); localStorage.setItem('wdCount', wdCount);
+            localStorage.setItem('userCoins', coins); updateUI();
+            alert("Berhasil dicairkan!");
+        }
+    }
+
+    // 6. FUNGSI LOGIN & DAFTAR (5 KOLOM)
+    let modeMasuk = true;
+    function pindahMode() {
+        modeMasuk = !modeMasuk;
+        const judul = document.getElementById('login-title');
+        const tombol = document.getElementById('btn-auth');
+        const tanya = document.getElementById('label-tanya');
+        const pindah = document.getElementById('btn-pindah');
+        const inputNama = document.getElementById('reg-nama');
+        const inputDana = document.getElementById('reg-dana');
+        const inputKonfirm = document.getElementById('reg-confirm');
+
+        if (modeMasuk) {
+            judul.innerText = "Masuk"; tombol.innerText = "Masuk";
+            tanya.innerText = "Belum punya akun?"; pindah.innerText = "Daftar Sekarang";
+            inputNama.style.display = "none"; inputDana.style.display = "none"; inputKonfirm.style.display = "none";
+        } else {
+            judul.innerText = "Daftar Akun"; tombol.innerText = "Daftar";
+            tanya.innerText = "Sudah punya akun?"; pindah.innerText = "Login di sini";
+            inputNama.style.display = "block"; inputDana.style.display = "block"; inputKonfirm.style.display = "block";
+        }
+    }
+
+    function eksekusiAuth() {
+        const nama = document.getElementById('reg-nama').value;
+        const dana = document.getElementById('reg-dana').value;
+        const email = document.getElementById('reg-email').value;
+        const pass = document.getElementById('reg-pass').value;
+        const konfirm = document.getElementById('reg-confirm').value;
+
+        if (email === "" || pass === "") { alert("Harap isi Gmail dan Password!"); return; }
+
+        if (!modeMasuk) {
+            if (nama === "" || dana === "" || konfirm === "") { alert("Harap lengkapi semua 5 kolom!"); return; }
+            if (pass !== konfirm) { alert("Password tidak cocok!"); return; }
+            localStorage.setItem('dataNama', nama);
+            localStorage.setItem('dataDana', dana);
+            localStorage.setItem('dataEmail', email);
+            localStorage.setItem('dataPass', pass);
+            alert("Daftar Berhasil! Silakan Masuk."); pindahMode();
+        } else {
+            const simpanEmail = localStorage.getItem('dataEmail');
+            const simpanPass = localStorage.getItem('dataPass');
+            if (email === simpanEmail && pass === simpanPass) {
+                document.getElementById('login-layer').style.display = 'none';
+                localStorage.setItem('isLoggedIn', 'true');
+                alert("Berhasil Masuk!");
+                updateUI();
+            } else { alert("Gmail atau Password salah!"); }
+        }
+    }
+
+    // Koin otomatis tiap 10 detik
+    setInterval(() => { 
+        if(localStorage.getItem('isLoggedIn') === 'true') {
+            coins += 10; localStorage.setItem('userCoins', coins); updateUI(); 
+        }
+    }, 10000);
+
+// DAFTAR SUMBER SUARA (BEBAS HAK CIPTA)
+// DAFTAR SUARA (Sudah sesuai dengan value di select Mas)
+const daftarSuara = {
+    air1: "air1.mp3",
+    air2: "air2.mp3",
+    air3: "air3.mp3"
+};
+
+const player = document.getElementById('audio-player');
+
+function pilihMusik(pilihan) {
+    if (!pilihan || pilihan === "none") {
+        player.pause();
+        localStorage.setItem('pilihanMusik', 'none');
+        return;
+    }
+
+    const fileLokal = daftarSuara[pilihan]; // Mencari air1, air2, atau air3
+    if (fileLokal) {
+        player.pause();
+        player.src = fileLokal; 
+        player.load();
+        player.volume = document.getElementById('volume-control').value; // Ambil dari slider volume
+        
+        player.play().then(() => {
+            console.log("Musik lokal diputar: " + fileLokal);
+        }).catch(e => {
+            console.log("Klik layar dulu untuk aktifkan suara");
+        });
+
+        localStorage.setItem('pilihanMusik', pilihan);
+    }
+}
+
+function setVolume(val) {
+    if(player) player.volume = val;
+}
+
+// Tambahan: Biar pas buka App suara langsung jalan otomatis (setelah user klik layar)
+document.addEventListener('click', () => {
+    const saved = localStorage.getItem('pilihanMusik');
+    if (saved && saved !== "none" && player.paused) {
+        pilihMusik(saved);
+        if(document.getElementById('bg-music-select')) {
+            document.getElementById('bg-music-select').value = saved;
+        }
+    }
+}, { once: true });
+
+</script>
+</body>
+</html>

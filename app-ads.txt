@@ -326,3 +326,5 @@ newtonsmobi.com, 6aa7783282d8f1ca, RESELLER
 seedtag.com, 674f42e4de70100007eeab9d, RESELLER
 smartadserver.com, 5791, RESELLER, 060d053dcf45cbf3
 sharethrough.com, 5791, RESELLER, 060d053dcf45cbf3
+
+google.com, pub-7855465157769999, DIRECT, f08c47fec0942fa0

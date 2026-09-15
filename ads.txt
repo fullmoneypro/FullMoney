@@ -122,3 +122,5 @@ themediagrid.com, falino, RESELLER, 9fac4a4a87c2a44f
 themediagrid.com, b8n9yh, RESELLER, 35d5010d7789b49d
 themediagrid.com, jvhg38, RESELLER, 9fac4a4a87c2a44f
 unity.com, 142790040, DIRECT, 96cabb5fbdde37a7
+
+google.com, pub-7855465157769999, DIRECT, f08c47fec0942fa0
